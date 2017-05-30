@@ -150,10 +150,6 @@
                border: none;
             }
 
-            .info:hover {
-               opacity: 1;
-            }
-
             img {
                width: 100%;
                height: auto;
@@ -223,14 +219,16 @@
 
     h3 {
        color: $text-gray;
+       transition: 1.5s color ease;
        font-size: 20vh;
        cursor: pointer;
        transition: all .2s;
        user-select: none;
        margin: auto;
        margin-top: -12%;
+       -webkit-tap-highlight-color: rgba(0,0,0,0);
     }
-    h3:hover {
+    h3:active {
        color: $text-hover;
        transform: scale(1.05);
     }
@@ -238,10 +236,8 @@
     .slide.ng-enter {
       transition: .9s cubic-bezier(.34,1.27,.82,1.07) all;
       opacity: 0;
-      top: -20%;
     }
     .slide.ng-enter.ng-enter-active {
-      top: -20%;
       opacity: 1;
     }
 
@@ -324,14 +320,16 @@
 
     h3 {
        color: $text-gray;
+       transition: 1.5s all ease;
        font-size: 20vh;
        cursor: pointer;
        transition: all .2s;
        user-select: none;
        margin: auto;
        margin-top: -12%;
+       -webkit-tap-highlight-color: rgba(0,0,0,0);
     }
-    h3:hover {
+    h3:active {
        color: $text-hover;
        transform: scale(1.05);
     }
@@ -339,10 +337,8 @@
     .slide.ng-enter {
       transition: .9s cubic-bezier(.34,1.27,.82,1.07) all;
       opacity: 0;
-      top: -20%;
     }
     .slide.ng-enter.ng-enter-active {
-      top: -20%;
       opacity: 1;
     }
 

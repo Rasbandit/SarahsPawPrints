@@ -28,12 +28,12 @@
 <div class="portraits-portrait">
   <div class="modal" ng-show="showModal" ng-click="showModal = false">
      <div class="modal-content">
-        <img class='zoom' src="{{modal.large}}" alt="">
+        <img class='zoom' ng-src="{{modal.large}}" alt="">
      </div>
   </div>
   <div class="imageTiles">
      <div class="image-contaier slide" ng-repeat="item in getSubArrayNine(startIndex)" ng-class="{'noshadow': item.ID === 0}">
-        <img src="{{item.img}}" ng-hide="item.ID === 0"  ng-click="loadModal(item.ID)">
+        <img ng-src="{{item.img}}" ng-hide="item.ID === 0"  ng-click="loadModal(item.ID)">
      </div>
   </div>
   <div class="bottom">

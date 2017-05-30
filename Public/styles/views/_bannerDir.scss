@@ -76,7 +76,7 @@
 
 .filler {
   display: none;
-  height: 5vh;
+  height: 10vh;
 }
 
 .small-drop-down-show {
@@ -146,6 +146,7 @@
 @media screen and (orientation: portrait) {
   .filler {
     display: block;
+    height: 5vh;
   }
   .banner-small {
        @include width-height(100%, 5vh);

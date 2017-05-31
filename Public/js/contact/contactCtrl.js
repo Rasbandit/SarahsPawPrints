@@ -1,7 +1,7 @@
 angular.module("sarApp").controller('contactCtrl', function($scope, contactService, $http) {
 
   $scope.sending = false;
-  $scope.fileName = 'Upload a picture';
+  $scope.fileName = 'Upload';
 
   $scope.submit = function() {
     $scope.sending = true;

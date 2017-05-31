@@ -34,13 +34,13 @@ module.exports = {
            };
         }
 
-     transporter.sendMail(mailOptions, function(error, response) {
-        if (error) {
-             console.log(error);
-             res.status(400).send(error);
-        } else {
+    //  transporter.sendMail(mailOptions, function(error, response) {
+    //     if (error) {
+    //          console.log(error);
+    //          res.status(400).send(error);
+    //     } else {
            res.status(200).send();
-        }
-     });
+    //     }
+    //  });
   }
 }

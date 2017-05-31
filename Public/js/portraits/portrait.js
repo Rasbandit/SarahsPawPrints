@@ -63,7 +63,7 @@ angular.module("sarApp").controller('portraitCtrl', function($scope, portraitSer
    $scope.loadModal = function (id) {
       for (var i = 0; i < $scope.petPortraits.length; i++) {
          if (id === $scope.petPortraits[i].ID) {
-            $scope.modal = $scope.petPortraits[i];
+            $scope.modal = $scope.petPortraits[i].large;
          }
       }
       $scope.showModal = true;

@@ -39,12 +39,16 @@
           @include flexSetUp(center, center);
 
          .modal-content {
+             background-image:url('./ring-alt.gif');
+             background-position: center center;
+             background-repeat:no-repeat;
              background-color: #888;
              padding: 2px;
              height: 85%;
              img {
                 height: 100%;
                 width: auto;
+                // background: url(./ring-alt.gif) no-repeat scroll 0 0;
              }
              h2 {
                 font-size: 2.5vw;
@@ -148,6 +152,10 @@
 
             .no-border {
                border: none;
+            }
+
+            .info:hover {
+               opacity: 1;
             }
 
             img {
@@ -261,6 +269,7 @@
           -ms-user-select: none;      /* IE 10+ */
           user-select: none;          /* Likely future */
           box-shadow: -5px 4px 5px #000;
+          -webkit-tap-highlight-color: rgba(0,0,0,0);
 
           img {
              width: 100%;

@@ -9,7 +9,7 @@
    ul {
       margin-top: 10px;
       font-size: 7vh;
-      width: 900px;
+      width: 80vw;
       @include flexSetUp(space-between, center);
       flex-direction: row;
       font-family: $header;
@@ -64,9 +64,10 @@
          text-decoration: none;
          transition: all 0.4s;
          text-shadow: 2px 3px black;
+         -webkit-tap-highlight-color: rgba(0,0,0,0);
       }
 
-      a:hover {
+      a:active {
          transform: scale(1.1);
          color: $text-hover;
          text-shadow: 5px 6px black;
@@ -112,6 +113,7 @@
 
           img {
              @include width-height(auto, 90%);
+             -webkit-tap-highlight-color: rgba(0,0,0,0);
           }
 
           a {
@@ -121,6 +123,7 @@
              margin-top: -10px;
              @include width-height(auto, 100%);
              @include flexSetUp(center, center);
+             -webkit-tap-highlight-color: rgba(0,0,0,0);
              img {
                 @include width-height(auto, 70%);
                 margin-top: 10px;

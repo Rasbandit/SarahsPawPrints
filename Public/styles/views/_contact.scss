@@ -5,12 +5,6 @@ form {
   flex-direction: column;
   position: relative;
 
-  h2 {
-    margin: auto;
-    font-size: 4vh;
-    text-align: center;
-    margin-bottom: 2vh;
-  }
 
   .disabled {
     display: block;
@@ -26,7 +20,14 @@ form {
     font-family: $header;
     font-weight: normal;
     font-size: 20vh;
-    margin: -20px auto -6vh;
+    margin: -20px auto -3vh;
+  }
+
+  h2 {
+    margin: auto;
+    font-size: 4vh;
+    text-align: center;
+    margin-bottom: 2vh;
   }
 
   .top-row {
@@ -155,6 +156,10 @@ form {
         }
       }
     }
+    textarea {
+      width: 95%;
+      margin: auto;
+    }
     .middle-row {
       height: 30%;
     }
@@ -169,7 +174,7 @@ form {
     }
     textarea {
       height: 30%;
-      font-size: 5vh;
+      font-size: 3.5vh;
     }
   }
 }

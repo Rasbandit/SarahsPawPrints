@@ -3,7 +3,7 @@ var db = app.get('db');
 var multer = require('multer');
 var upload = multer();
 const AWS = require('aws-sdk');
-const lwip = require('lwip');
+// const lwip = require('lwip');
 
 AWS.config.update({
   accessKeyId: process.env.AWS_ACCESS_KEY,

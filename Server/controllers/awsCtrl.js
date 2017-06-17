@@ -3,6 +3,7 @@ var db = app.get('db');
 var multer = require('multer');
 var upload = multer();
 const AWS = require('aws-sdk');
+const lwip = require('lwip');
 
 AWS.config.update({
   accessKeyId: process.env.AWS_ACCESS_KEY,
@@ -16,7 +17,10 @@ module.exports = {
     console.log(req.file.originalname);
     console.log(req.file);
     console.log(req.body);
+
     const buf = new Buffer(req.file.buffer, 'base64');
+
+    buf.toBuffer({format: 'jpg'}, {quality: 80}, {callback: function(err, buffer) {}})
 
     const bucketName = 'sarahgreggportfolio/portraits';
     const params = {

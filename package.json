@@ -29,6 +29,7 @@
     "gulp-uglify": "^2.0.0",
     "massive": "^2.6.1",
     "multer": "^1.2.1",
+    "multer-s3": "^2.7.0",
     "nodemailer": "^2.7.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",

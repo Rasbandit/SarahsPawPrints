@@ -1,8 +1,8 @@
 angular.module("sarApp").controller('adminCtrl', function($scope, $http, $rootScope, $state) {
   console.log($rootScope);
-  if($rootScope.loggedIn === false) {
-    $state.go('login')
-  };
+  // if($rootScope.loggedIn === false) {
+  //   $state.go('login')
+  // };
 
    $scope.sending = false;
    $scope.fileName = 'Upload a picture';

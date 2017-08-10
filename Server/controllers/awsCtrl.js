@@ -1,7 +1,9 @@
-var app = require('./../index');
-var db = app.get('db');
-var multer = require('multer');
-var upload = multer();
+const app = require('./../index');
+
+const db = app.get('db');
+const multer = require('multer');
+
+const upload = multer();
 const AWS = require('aws-sdk');
 // const lwip = require('lwip');
 
@@ -13,14 +15,14 @@ AWS.config.update({
 const s3 = new AWS.S3();
 
 module.exports = {
-  upload: function(req, res, next) {
+  upload(req, res, next) {
     console.log(req.file.originalname);
     console.log(req.file);
     console.log(req.body);
 
     const buf = new Buffer(req.file.buffer, 'base64');
 
-    buf.toBuffer({format: 'jpg'}, {quality: 80}, {callback: function(err, buffer) {}})
+    buf.toBuffer({ format: 'jpg' }, { quality: 80 }, { callback(err, buffer) {} });
 
     const bucketName = 'sarahgreggportfolio/portraits';
     const params = {
@@ -28,18 +30,18 @@ module.exports = {
       Key: `${req.body.titel}.jpg`,
       Body: buf,
       ACL: 'public-read'
-    }
-    s3.upload(params, function(err, data) {
+    };
+    s3.upload(params, (err, data) => {
       if (err) {
-         console.log(err);
-         return res.status(500).send(err);
+        console.log(err);
+        return res.status(500).send(err);
       }
-      else {
-        res.status(200).send();
-      }
+
+      res.status(200).send();
+
       // db.upload_picture([data.Location, req.body.title], function(err){
       //    console.log(err);
       // })
     });
   }
-}
+};

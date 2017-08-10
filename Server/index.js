@@ -11,6 +11,8 @@ const express = require('express'),
 
 dotenv.load();
 
+var x = "bob";
+
 var app = module.exports = express();
 
 //database connection

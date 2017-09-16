@@ -1,48 +1,48 @@
 const express = require('express'),
-      session = require('express-session'),
-      cors = require('cors'),
-      bodyParser = require('body-parser'),
-      massive = require('massive'),
-      nodemailer = require('nodemailer'),
-      multer = require('multer'),
-      upload = multer(),
-      dotenv = require('dotenv'),
-      port = 3000;
+  session = require('express-session'),
+  cors = require('cors'),
+  bodyParser = require('body-parser'),
+  massive = require('massive'),
+  nodemailer = require('nodemailer'),
+  multer = require('multer'),
+  upload = multer(),
+  dotenv = require('dotenv'),
+  port = 3000;
 
 dotenv.load();
 
-var x = "bob";
+const app = module.exports = express();
 
-var app = module.exports = express();
-
-//database connection
+// database connection
 const connectionStrings = process.env.MASSIVE_URI;
 var db = massive.connectSync({
-    connectionString: connectionStrings
+  connectionString: connectionStrings
 });
 app.set('db', db);
 var db = app.get('db');
 
-//Passport middleware
-const isAuthed = function(req, res, next) {
-    if (!req.isAuthenticated()) return res.status(401)
-        .send();
-    return next();
+// Passport middleware
+const isAuthed = function (req, res, next) {
+  if (!req.isAuthenticated()) {
+    return res.status(401)
+      .send();
+  }
+  return next();
 };
 
 const imgCtrl = require('./controllers/imageController');
 const mailCtrl = require('./controllers/emailCtrl');
 const awsCtrl = require('./controllers/awsCtrl');
 const passport = require('./controllers/passport');
-const userCtrl = require('./controllers/userCtrl')
+const userCtrl = require('./controllers/userCtrl');
 
-//middleware
+// middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(__dirname + './../dist'));
+app.use(express.static(`${__dirname}./../dist`));
 app.use(cors());
-app.use(bodyParser.json({limit: '50mb'}));
-app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
@@ -51,30 +51,30 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-//auth
+// auth
 app.post('/api/login', passport.authenticate('local', {
   successRedirect: '/me'
-}))
-app.get('/api/logout', (req,res, next) => {
+}));
+app.get('/api/logout', (req, res, next) => {
   req.logout();
   return res.status(200).send('logged out');
 });
 
-//===USER ENDPOINTS=========================
+//= ==USER ENDPOINTS=========================
 // app.post('/api/register', userCtrl.register);
 app.get('/me', isAuthed, userCtrl.me);
 
 
-//getting pictures
+// getting pictures
 app.get('/api/getPortraits', imgCtrl.getPortraits);
 app.get('/api/getOthers', imgCtrl.getOthers);
 
-//Email Endpoint
+// Email Endpoint
 app.post('/api/email', upload.single('attachment'), mailCtrl.mail);
 
-//s3 endpoints
+// s3 endpoints
 app.post('/api/upload', upload.single('attachment'), awsCtrl.upload);
 
-app.listen(port, function() {
-    console.log('Ship docked at port ' + port);
+app.listen(port, () => {
+  console.log(`Ship docked at port ${port}`);
 });

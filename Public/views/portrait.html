@@ -3,7 +3,7 @@
    <div class="images">
       <div class="modal" ng-show="showModal" ng-click="showModal = false">
          <div class="modal-content" ng-click="$event.stopPropagation()">
-            <img ng-if="imgLoading" class='zoom' ng-src="{{modal}}">
+            <img class='zoom' ng-src="{{modal}}">
             <h2>Scroll to zoom.</h2>
          </div>
       </div>
@@ -28,7 +28,7 @@
 <div class="portraits-portrait">
   <div class="modal" ng-show="showModal" ng-click="showModal = false">
      <div class="modal-content">
-        <img class='zoom' ng-src="{{modal.large}}" alt="">
+        <img class='zoom' ng-src="{{modal}}" alt="">
      </div>
   </div>
   <div class="imageTiles">

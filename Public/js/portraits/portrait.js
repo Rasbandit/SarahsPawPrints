@@ -1,5 +1,4 @@
-angular.module("sarApp").controller('portraitCtrl', function($scope, portraitService) {
-
+angular.module('sarApp').controller('portraitCtrl', function($scope, portraitService) {
   $scope.startIndex = 0;
   $scope.modal = {};
   $scope.large = $scope.petPortraits[0];
@@ -15,15 +14,15 @@ angular.module("sarApp").controller('portraitCtrl', function($scope, portraitSer
     $scope.hideSix = false;
   }
 
-  $scope.getSubArraySix = function(start) {
+  $scope.getSubArraySix = function (start) {
     return $scope.petPortraits.slice(start, start + 6);
   };
 
-  $scope.getSubArrayNine = function(start) {
+  $scope.getSubArrayNine = function (start) {
     return $scope.petPortraits.slice(start, start + 9);
   };
 
-  $scope.showMoreSix = function(incOrDec) {
+  $scope.showMoreSix = function (incOrDec) {
     if (incOrDec === '+') {
       if ($scope.startIndex + 6 >= $scope.petPortraits.length) {
         $scope.startIndex = 0;
@@ -40,7 +39,7 @@ angular.module("sarApp").controller('portraitCtrl', function($scope, portraitSer
     }
   };
 
-  $scope.showMoreNine = function(incOrDec) {
+  $scope.showMoreNine = function (incOrDec) {
     if (incOrDec === '+') {
       if ($scope.startIndex + 9 >= $scope.petPortraits.length) {
         $scope.startIndex = 0;
@@ -57,9 +56,8 @@ angular.module("sarApp").controller('portraitCtrl', function($scope, portraitSer
     }
   };
 
-  $scope.loadModal = function(id) {
-    $scope.modal = {};
-    for (var i = 0; i < $scope.petPortraits.length; i++) {
+  $scope.loadModal = function (id) {
+    for (let i = 0; i < $scope.petPortraits.length; i++) {
       if (id === $scope.petPortraits[i].ID) {
         $scope.modal = $scope.petPortraits[i].large;
       }
@@ -67,8 +65,8 @@ angular.module("sarApp").controller('portraitCtrl', function($scope, portraitSer
     $scope.showModal = true;
   };
 
-  $scope.setLarge = function(id) {
-    for (var i = 0; i < $scope.petPortraits.length; i++) {
+  $scope.setLarge = function (id) {
+    for (let i = 0; i < $scope.petPortraits.length; i++) {
       if (id === $scope.petPortraits[i].ID) {
         $scope.large = $scope.petPortraits[i];
       }
@@ -77,6 +75,5 @@ angular.module("sarApp").controller('portraitCtrl', function($scope, portraitSer
 
   $scope.setLarge(1);
 
-  wheelzoom(document.querySelectorAll('.zoom'))
-
+  wheelzoom(document.querySelectorAll('.zoom'));
 });

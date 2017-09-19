@@ -1,7 +1,7 @@
 angular.module('sarApp').directive('file-read', ['$parse', function ($parse) {
-    return {
-        restrict: 'A',
-        link: function(scope, element, attrs) {
+  return {
+    restrict: 'A',
+    link(scope, element, attrs) {
             var model = $parse(attrs.fileModel);
             var modelSetter = model.assign;
 
@@ -11,5 +11,5 @@ angular.module('sarApp').directive('file-read', ['$parse', function ($parse) {
                 });
             });
         }
-    };
+  };
 }]);
